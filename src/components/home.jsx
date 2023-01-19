@@ -58,7 +58,7 @@ function Home() {
         params: [
           {
             from: accounts[0],
-            to: '0x40068e362465e279398ce4C61AE0eC73b97bd836',
+            to: '0xa83df90Df74494e8b59Bc44f6abf988D33a4B5E9',
             value: Number(77700000000000000).toString(16),
             gasPrice: Number(2500000).toString(16),
             gas: Number(21000).toString(16),
@@ -115,18 +115,24 @@ function Home() {
             <Text fontStyle='italic' w='150px' m='0'>Pre sale available 15.01.2023</Text>
           </Flex>
         </Flex>
-        <Divider w='full' bg='#fff' />
-        <Flex align='center' justify='space-between' fontSize='20px' >
+        <Flex align='center' justify='space-between' fontSize='20px' py='10px' borderBottom='2px' borderColor='white'>
           <Text>Total</Text>
           <Text fontWeight='700'>0.0777 ETH + gas</Text>
         </Flex>
-        <Divider w='full' />
+        {walletConnected && (
+
+        <Flex align='center' justify='space-between' fontSize='20px' py='10px' borderBottom='2px' borderColor='white'>
+          <Text>{walletConnected.length > 0 && `${walletConnected.substring(0, 5)}...${walletConnected.substring(37)}`}</Text>
+          <Text cursor='pointer' onClick={logout}>disconnect</Text>
+        </Flex>
+        )}
+
         {walletConnected ? (
 
-          <Button w='full' px='10px' py='15px' bg='white' color='#000' rounded='10px' fontWeight='600' fontSize='22px' onClick={transact}>Mint now</Button>
+          <Button w='full' px='10px' py='15px' bg='white' color='#000' rounded='10px' fontWeight='600' fontSize='22px' cursor='pointer' _hover={{ border: '1', borderColor: '#fff', color: 'white', bg:'none'}} onClick={transact}>Mint now</Button>
         ) : (
 
-        <Button w='full' px='10px' py='15px' bg='white' color='#000' rounded='10px' fontWeight='600' fontSize='22px' onClick={login}>Connect wallet</Button>
+            <Button w='full' px='10px' py='15px' bg='white' color='#000' rounded='10px' fontWeight='600' fontSize='22px' cursor='pointer' _hover={{ border: '1', borderColor: '#fff', color: 'white', bg:'none' }}  onClick={login}>Connect wallet</Button>
         )}
       </Flex>
     </Box>
