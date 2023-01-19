@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import Image2 from './assets/abeast.gif'
 import { useState, useEffect } from 'react';
